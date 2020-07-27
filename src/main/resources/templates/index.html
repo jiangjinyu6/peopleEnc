@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/signin.css" rel="stylesheet" type="text/css">
+</head>
+<body class="text-center">
+<form class="form-signin" action="main.html" th:action="@{/login}" method="post">
+    <img class="mb-4" th:src="@{img/bootstrap-solid.svg}" src=" img/bootstrap-solid.svg" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal" th:text="#{login.tip}">Please sign in</h1>
+    <!--判断-->
+    <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+    <label class="sr-only" name="username" th:text="#{login.username}">Username</label>
+    <input type="text"  name="username" class="form-control" placeholder="Username" th:placeholder="#{login.username}" required="" autofocus="">
+    <label class="sr-only" th:text="#{login.password}">Password</label>
+    <input type="password" name="userpassword" class="form-control" placeholder="Password" th:placeholder="#{login.password}" required="">
+    <div class="checkbox mb-3">
+        <label>
+            <input type="checkbox" value="remember-me"/> [[#{login.remember}]]
+        </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{login.btn}">Sign in</button>
+    <a href="register/userAdd.html" th:href="@{/registers}" >没有账号？点击进行登录</a>
+    <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+    <a class="btn btn-sm" th:href="@{/(l='zh_CN')}">中文</a>
+    <a class="btn btn-sm" th:href="@{/(l='en_US')}">English</a>
+</form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+    <link href="css/signin.css" th:href="@{css/signin.css}" rel="stylesheet" type="text/css">
+</head>
+<body class="text-center">
+
+<form class="form-signin" action="../register/userAdd.html" th:action="@{/register}"  method="post">
+    <img class="mb-4" th:src="@{img/bootstrap-solid.svg}" src=" img/bootstrap-solid.svg" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal" th:text="#{register.tip}">Please enter the relevant information to register</h1>
+    <!--判断-->
+    <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+    <label class="sr-only" name="username" th:text="#{register.username}">Username</label>
+    <input type="text"  name="username" class="form-control" placeholder="Username" required="" autofocus="">
+    <label class="sr-only" th:text="#{register.password}">Password</label>
+    <input type="password" name="password" class="form-control" placeholder="Password" th:placeholder="#{register.password}" required="">
+    <label class="sr-only" th:text="#{register.email}">email</label>
+    <input type="email" name="email" class="form-control" placeholder="email" required="">
+    <br/>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{register.btn}">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+    <a class="btn btn-sm" th:href="@{/registers(l='zh_CN')}">中文</a>
+    <a class="btn btn-sm" th:href="@{/registers(l='en_US')}">English</a>
+</form>
+
+</body>
+</html>
